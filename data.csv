@@ -1,0 +1,8 @@
+﻿Attack Name,Success Rate,Loss Min,Loss Max,Average Per Year
+C2 Server Physical Damage,0.05,10000,50000,200
+C2 Server Acquire Valid Accounts,0.455,5000,30000,1000
+C2 Server Remote Code Execution,0.2,1000,5000,500
+C2 Storage Data Exfiltration,0.021,0,1000000,10
+Assembly Line Physical Sabotage,0.017,20000,40000,22
+Supply Chain Compromise,0.05,12345,67890,14
+Infrastructure Shutdown,0.15,80000,1000000,10
