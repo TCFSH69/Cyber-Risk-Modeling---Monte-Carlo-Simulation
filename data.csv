@@ -1,8 +1,18 @@
-﻿Attack Name,Success Rate,Loss Min,Loss Max,Average Per Year
-C2 Server Physical Damage,0.05,10000,50000,200
-C2 Server Acquire Valid Accounts,0.455,5000,30000,1000
-C2 Server Remote Code Execution,0.2,1000,5000,500
-C2 Storage Data Exfiltration,0.021,0,1000000,10
-Assembly Line Physical Sabotage,0.017,20000,40000,22
-Supply Chain Compromise,0.05,12345,67890,14
-Infrastructure Shutdown,0.15,80000,1000000,10
+﻿Attack Name,Success Rate,Loss Min,Loss Max,Average Attack Per Year,Comment
+Drone Poison Data Collection,0.0049,1800,8400000,6,
+Send Malicious Payloads Downstream to C2 Server,0,1800,11250000,5,
+Compromise Controls Over Drones,0.0039,1800,4600000,5,
+Drone Physically Destroyed,0,1800,4600000,0,We don't consider physically destroyed drones for loss are the risk for this is burdened by the government as the actual statistics depends heavily on drone operators use of the drone.  
+C2 Server Physically Damaged,0.00000002,50000,20000000,4,
+Acquire Valid C2 Server Accounts,0,25000,8000000,10,
+C2 Server Remote Code Execution,0,30000,12000000,8,
+C2 Storage Data Exfiltration,0,25000,50000000,6,
+Assembly Line Physically Sabotaged,0,150000,100000000,3,Multiply by a 100x factor for being the crucial infrastructure
+Supply Chain Compromise,0,100000,7200000,8,
+OT Infrastructure Shutdown,0,1000000,500000000,10,Multiply by a 100x factor for being the crucial infrastructure
+Obtain Operator Location,0.006989,2000,200000,13,
+Gain Unauthorized Operator Console Access,0.005796,7500,1500000,7,
+Physically Compromise Operator ,0.01593505,30000,2000000,2,
+Transfer Data to Cloud Account,0.000107896,15000,1200000,11,
+Company Credential Destruction,0.000107896,30000,2000000,11,
+Company Network Denial of Service,0.000107896,5000,7000000,15,

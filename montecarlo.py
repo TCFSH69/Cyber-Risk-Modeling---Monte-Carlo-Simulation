@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import math
 
 class AttackRiskSimulator:
     def __init__(self, attacks_data):
@@ -18,12 +19,14 @@ class AttackRiskSimulator:
             
             for attack in self.attacks:
                 # Poisson Distribution
-                n_attacks = np.random.poisson(attack['Average Per Year'])
+                n_attacks = np.random.poisson(attack['Average Attack Per Year'])
                 
                 attack_loss = 0
                 for _ in range(n_attacks):
                     if np.random.random() < attack['Success Rate']:
-                        loss = np.random.uniform(attack['Loss Min'], attack['Loss Max'])
+                        sigma = (math.log(attack['Loss Max']) - math.log(attack['Loss Min'])) / 4.652 # 1% and 99% z-score
+                        mu = math.log(attack['Loss Min']) + 2.326 * sigma
+                        loss = np.random.lognormal(mu, sigma)
                         attack_loss += loss
                 
                 attack_losses[attack['Attack Name']].append(attack_loss)
@@ -68,14 +71,14 @@ class AttackRiskSimulator:
         return stats_dict
     
     def plot_results(self):
-        fig = plt.figure(figsize=(16, 12))
+        plt.figure(figsize=(16, 12))
         
         # Set unit to 1 Million dollars 
         total_losses_m = self.total_losses / 1e6
         
         # 1. Total Loss Histogram
         ax1 = plt.subplot(2, 2, 1)
-        ax1.hist(total_losses_m, bins=100, color='steelblue', alpha=0.7, edgecolor='black')
+        ax1.hist(total_losses_m, bins=50, range=(0.1, 5), color='steelblue', alpha=0.7, edgecolor='black')
         ax1.axvline(np.mean(total_losses_m), color='red', linestyle='--', linewidth=2, label=f'Average: ${np.mean(total_losses_m):,.2f}M')
         ax1.axvline(np.percentile(total_losses_m, 95), color='orange', linestyle='--', linewidth=2, label=f'Var 95%: ${np.percentile(total_losses_m, 95):,.2f}M')
         ax1.set_xlabel('Annual Total Loss (Million $)', fontsize=12)
@@ -166,7 +169,7 @@ def load_attacks_from_csv(csv_file):
 
 if __name__ == "__main__":
     attacks = load_attacks_from_csv('data.csv')
-    
+
     simulator = AttackRiskSimulator(attacks)
     
     losses = simulator.simulate(n_simulations=10000)
