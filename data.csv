@@ -1,0 +1,18 @@
+﻿Attack Name,Success Rate,Loss Min,Loss Max,Average Attack Per Year,Comment
+Drone Poison Data Collection,0.0049,178000,8400000,15,
+Send Malicious Payloads Downstream to C2 Server,0.0039,178000,11250000,14,
+Compromise Controls Over Drones,0.0039,178000,4600000,14,
+Drone Physically Destroyed,0,178000,4600000,0,We don't consider physically destroyed drones for loss are the risk for this is burdened by the government as the actual statistics depends heavily on drone operators use of the drone.  
+C2 Server Physically Damaged,0.00000002,500000,20000000,10,
+Acquire Valid C2 Server Accounts,0.00134296,50000,8000000,14,
+C2 Server Remote Code Execution,0.00000009,100000,12000000,15,
+C2 Storage Data Exfiltration,0.00024009,200000,50000000,6,
+Assembly Line Physically Sabotaged,0.00011,250000,100000000,3,Multiply by a 100x factor for being the crucial infrastructure
+Supply Chain Compromise,0.0026079,100000,18000000,12,
+OT Infrastructure Shutdown,0.00004,1000000,500000000,10,Multiply by a 100x factor for being the crucial infrastructure
+Obtain Operator Location,0.006989,100000,2000000,20,
+Gain Unauthorized Operator Console Access,0.005796,10000,15000000,15,
+Physically Compromise Operator ,0.01593505,100000,2000000,2,
+Transfer Data to Cloud Account,0.000107896,100000,1200000,20,
+Company Credential Destruction,0.000107896,200000,2000000,15,
+Company Network Denial of Service,0.000107896,120000,7000000,15,
